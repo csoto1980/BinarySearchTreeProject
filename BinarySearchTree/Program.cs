@@ -12,6 +12,7 @@ namespace BinarySearchTree
 
         {
             BinaryTree binaryTree = new BinaryTree();
+            BinaryTree.AddToTree(10);
         }
     }
 }

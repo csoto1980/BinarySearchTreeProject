@@ -8,20 +8,36 @@ namespace BinarySearchTree
 {
     class BinaryTree
     {
+        // Set the parent node to the current node(root node)
+        // If the data value in the new node is less than the data value in the current node 
+        // set the current node to be the left child of the current
+        // If greater than set the current node here and exit the loop
+
         //Member Variables
-        int root = 100;
+        Node root;
+        int newNode;
 
         //Constructor
         public BinaryTree()
         {
+            root = null;
 
         }
-
         //Methods
 
-        public void Add()
+        public void AddToTree(int value)
         {
+            
+            if (root == null)
+            {
+                
+                root = new Node(value);
 
+            }
+            else if (value >= newNode)
+            {
+
+            }
 
         }
 
@@ -30,6 +46,5 @@ namespace BinarySearchTree
 
 
         }
-
     }
 }
