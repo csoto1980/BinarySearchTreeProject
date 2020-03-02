@@ -6,41 +6,57 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {
-    class BinaryTree
+    public class BinaryTree
     {
-        // Set the parent node to the current node(root node)
-        // If the data value in the new node is less than the data value in the current node 
-        // set the current node to be the left child of the current
-        // If greater than set the current node here and exit the loop
 
         //Member Variables
-        Node root;
-        int newNode;
+        public Node root;
+        public int newNode;
 
         //Constructor
         public BinaryTree()
         {
             root = null;
-
         }
         //Methods
-
         public void AddToTree(int value)
         {
-            
+            Node newNode = new Node();
+            newNode.value = value;
             if (root == null)
             {
-                
-                root = new Node(value);
-
+                root = newNode;
+                //root = new Node(value);
             }
-            else if (value >= newNode)
+            else
             {
-
+                Node current = root;
+                Node parent;
+                while (true)
+                {
+                    parent = current;
+                    if ( value < current.value)
+                    {
+                        current = current.leftChild;
+                        if (current == null)
+                        {
+                            parent.leftChild = newNode;
+                            break;
+                        }
+                        else
+                        {
+                            current = current.rightChild;
+                            if (current == null)
+                            {
+                                parent.rightChild = newNode;
+                                break;
+                            }
+                        }
+                    }
+                }
             }
 
         }
-
         public void Search()
         {
 
