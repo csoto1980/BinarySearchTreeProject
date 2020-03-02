@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
 
         {
             BinaryTree binaryTree = new BinaryTree();
-            BinaryTree.AddToTree(10);
+            binaryTree.AddToTree(10);
+            binaryTree.AddToTree(50);
+            binaryTree.AddToTree(2);
+            binaryTree.AddToTree(1);
+            binaryTree.AddToTree(51);
+
+            Console.WriteLine();
+            Console.ReadLine();
         }
     }
 }

@@ -8,11 +8,10 @@ namespace BinarySearchTree
 {
     public class BinaryTree
     {
-
         //Member Variables
         public Node root;
-        public int newNode;
-
+        public int currentNode;
+         
         //Constructor
         public BinaryTree()
         {
@@ -21,43 +20,45 @@ namespace BinarySearchTree
         //Methods
         public void AddToTree(int value)
         {
-            Node newNode = new Node();
-            newNode.value = value;
+            Node newNode = new Node(value);
+            
             if (root == null)
             {
                 root = newNode;
-                //root = new Node(value);
+                return
             }
-            else
+            Node currentNode = root;
+            while (true)
             {
-                Node current = root;
-                Node parent;
-                while (true)
+                if (newNode.value < currentNode.value)
                 {
-                    parent = current;
-                    if ( value < current.value)
+                    if (currentNode.leftChild == null)
                     {
-                        current = current.leftChild;
-                        if (current == null)
-                        {
-                            parent.leftChild = newNode;
-                            break;
-                        }
-                        else
-                        {
-                            current = current.rightChild;
-                            if (current == null)
-                            {
-                                parent.rightChild = newNode;
-                                break;
-                            }
-                        }
+                        currentNode.leftChild = newNode;
+                        return;
+                    }
+                    else
+                    {
+                        currentNode = currentNode.leftChild;
+                        return;
                     }
                 }
+                if (newNode.value > currentNode.value)
+                {
+                    if(currentNode.rightChild == null)
+                    {
+                        currentNode.rightChild = newNode;
+                        return;
+                    }
+                    else
+                    {
+                        currentNode = currentNode.rightChild;
+                        return;
+                    }  
+                }
             }
-
         }
-        public void Search()
+        public void SearchTree(int value)
         {
 
 

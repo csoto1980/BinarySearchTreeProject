@@ -11,8 +11,7 @@ namespace BinarySearchTree
         //member variables
         public int value;
         public Node leftChild;
-        public Node rigthChild;
-
+        public Node rightChild;
 
         public Node(int value)
         {
