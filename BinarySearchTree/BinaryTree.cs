@@ -11,7 +11,7 @@ namespace BinarySearchTree
         //Member Variables
         public Node root;
         public int currentNode;
-         
+
         //Constructor
         public BinaryTree()
         {
@@ -21,11 +21,10 @@ namespace BinarySearchTree
         public void AddToTree(int value)
         {
             Node newNode = new Node(value);
-            
             if (root == null)
             {
                 root = newNode;
-                return
+                return;
             }
             Node currentNode = root;
             while (true)
@@ -45,7 +44,7 @@ namespace BinarySearchTree
                 }
                 if (newNode.value > currentNode.value)
                 {
-                    if(currentNode.rightChild == null)
+                    if (currentNode.rightChild == null)
                     {
                         currentNode.rightChild = newNode;
                         return;
@@ -54,14 +53,49 @@ namespace BinarySearchTree
                     {
                         currentNode = currentNode.rightChild;
                         return;
-                    }  
+                    }
                 }
             }
         }
-        public void SearchTree(int value)
+        public bool SearchTree(int value)
         {
+            Node newNode = new Node(value);
 
-
+            if (root == null)
+            {
+                root = newNode;
+                return (false);
+            }
+            Node currentNode = root;
+            while (true)
+            {
+                if (newNode.value < currentNode.value)
+                {
+                    if (currentNode.leftChild == null)
+                    {
+                        currentNode.leftChild = newNode;
+                        return (true);
+                    }
+                    else
+                    {
+                        currentNode = currentNode.leftChild;
+                        return (true);
+                    }
+                }
+                if (newNode.value > currentNode.value)
+                {
+                    if (currentNode.rightChild == null)
+                    {
+                        currentNode.rightChild = newNode;
+                        return (true);
+                    }
+                    else
+                    {
+                        currentNode = currentNode.rightChild;
+                        return (true);
+                    }
+                }
+            }
         }
     }
 }
